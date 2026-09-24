@@ -1,0 +1,6 @@
+{
+  "name": "Wide - Conseil Stratégique & Financier",
+  "description": "Cabinet de conseil en stratégie, finance d'entreprise et excellence opérationnelle. Là où l'expertise crée l'excellence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

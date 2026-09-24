@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Subtle grid pattern matching the screenshot background */
+.bg-grid-subtle {
+  background-size: 56px 56px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* 3D Phone Perspective */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.phone-tilt-back {
+  transform: rotate(-14deg) rotateY(-8deg) rotateX(16deg) translateZ(-40px);
+  box-shadow: -20px 30px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(163, 230, 53, 0.08);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.phone-tilt-front {
+  transform: rotate(-18deg) rotateY(-10deg) rotateX(20deg) translateZ(40px);
+  box-shadow: -25px 35px 60px -15px rgba(0, 0, 0, 0.8), 0 0 45px rgba(163, 230, 53, 0.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .phone-tilt-back {
+    transform: rotate(-6deg);
+    box-shadow: -10px 15px 30px rgba(0, 0, 0, 0.6);
+  }
+  .phone-tilt-front {
+    transform: rotate(-8deg);
+    box-shadow: -15px 20px 35px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* Off-screen rendering optimization: safely skips DOM layout/paint until scrolled into view */
+@supports (content-visibility: auto) {
+  .section-deferred {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 650px;
+  }
+}
+
+/* Smooth anchor navigation offset */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
